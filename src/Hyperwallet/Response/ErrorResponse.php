@@ -85,7 +85,7 @@ class ErrorResponse implements \Countable, \ArrayAccess {
      * The return value is cast to an integer.
      * @since 5.1.0
      */
-    public function count() {
+    public function count(): int {
         return count($this->errors);
     }
 
@@ -103,7 +103,7 @@ class ErrorResponse implements \Countable, \ArrayAccess {
      * The return value will be casted to boolean if non-boolean was returned.
      * @since 5.0.0
      */
-    public function offsetExists($offset) {
+    public function offsetExists(mixed $offset): bool {
         return isset($this->errors[$offset]);
     }
 
@@ -118,7 +118,7 @@ class ErrorResponse implements \Countable, \ArrayAccess {
      * @return mixed Can return all value types.
      * @since 5.0.0
      */
-    public function offsetGet($offset) {
+    public function offsetGet(mixed $offset): mixed {
         return $this->errors[$offset];
     }
 
@@ -136,7 +136,7 @@ class ErrorResponse implements \Countable, \ArrayAccess {
      * @return void
      * @since 5.0.0
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet(mixed $offset, mixed $value): void {
         $this->errors[$offset] = $value;
     }
 
@@ -151,7 +151,7 @@ class ErrorResponse implements \Countable, \ArrayAccess {
      * @return void
      * @since 5.0.0
      */
-    public function offsetUnset($offset) {
+    public function offsetUnset(mixed $offset): void {
         unset($this->errors[$offset]);
     }
 

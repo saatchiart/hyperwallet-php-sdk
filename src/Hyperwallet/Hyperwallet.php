@@ -72,7 +72,7 @@ class Hyperwallet {
      *
      * @throws HyperwalletArgumentException
      */
-    public function __construct($username, $password, $programToken = null, $server = 'https://api.sandbox.hyperwallet.com', $encryptionData = array(), $clientOptions = array()) {
+    public function __construct($username, $password, ?string $programToken = null, $server = 'https://api.sandbox.hyperwallet.com', $encryptionData = array(), $clientOptions = array()) {
         if (empty($username) || empty($password)) {
             throw new HyperwalletArgumentException('You need to specify your API username and password!');
         }
@@ -1517,7 +1517,7 @@ class Hyperwallet {
      * @throws HyperwalletArgumentException
      * @throws HyperwalletApiException
      */
-    public function createTransferMethod($userToken, $jsonCacheToken, TransferMethod $transferMethod = null) {
+    public function createTransferMethod($userToken, $jsonCacheToken, ?TransferMethod $transferMethod = null) {
         if (empty($userToken)) {
             throw new HyperwalletArgumentException('userToken is required!');
         }

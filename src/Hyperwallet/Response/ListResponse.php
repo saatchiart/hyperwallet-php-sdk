@@ -73,7 +73,7 @@ class ListResponse implements \Countable, \ArrayAccess {
      * The return value is cast to an integer.
      * @since 5.1.0
      */
-    public function count() {
+    public function count(): int {
         return count($this->data);
     }
 
@@ -91,7 +91,7 @@ class ListResponse implements \Countable, \ArrayAccess {
      * The return value will be casted to boolean if non-boolean was returned.
      * @since 5.0.0
      */
-    public function offsetExists($offset) {
+    public function offsetExists(mixed $offset): bool {
         return isset($this->data[$offset]);
     }
 
@@ -106,7 +106,7 @@ class ListResponse implements \Countable, \ArrayAccess {
      * @return mixed Can return all value types.
      * @since 5.0.0
      */
-    public function offsetGet($offset) {
+    public function offsetGet(mixed $offset): mixed {
         return $this->data[$offset];
     }
 
@@ -124,13 +124,13 @@ class ListResponse implements \Countable, \ArrayAccess {
      * @return void
      * @since 5.0.0
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet(mixed $offset, mixed $value): void {
         $this->data[$offset] = $value;
     }
 
     /**
      * @internal
-     * 
+     *
      * Offset to unset
      * @link http://php.net/manual/en/arrayaccess.offsetunset.php
      * @param mixed $offset <p>
@@ -139,7 +139,7 @@ class ListResponse implements \Countable, \ArrayAccess {
      * @return void
      * @since 5.0.0
      */
-    public function offsetUnset($offset) {
+    public function offsetUnset(mixed $offset): void {
         unset($this->data[$offset]);
     }
 }
